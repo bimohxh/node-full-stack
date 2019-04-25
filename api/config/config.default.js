@@ -9,6 +9,11 @@ module.exports = {
       enable: false
     }
   },
+  cors: {
+    origin: '*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
+    allowHeaders: 'Origin, X-Requested-With, Content-Type, Accept, token'
+  },
   database: {
     host: '',
     user: '',
