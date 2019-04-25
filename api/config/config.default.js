@@ -1,11 +1,28 @@
 module.exports = {
   middleware: [ 'auth' ],
   keys: 'hxh',
+  multipart: {
+    mode: 'file'
+  },
+  security: {
+    csrf: {
+      enable: false
+    }
+  },
   database: {
-    host: '192.168.1.100',
-    user: 'root',
+    host: '',
+    user: '',
     password: '',
-    database: 'dpjia_2018_dev_local',
+    database: '',
     charset: 'utf8'
+  },
+  oss: {
+    client: {
+      accessKeyId: 'your access key',
+      accessKeySecret: 'your access secret',
+      bucket: 'your bucket name',
+      endpoint: 'oss-cn-hongkong.aliyun.com',
+      timeout: '60s'
+    }
   }
 }

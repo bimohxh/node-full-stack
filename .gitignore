@@ -2,3 +2,5 @@ node_modules
 !.keep
 api/logs
 api/run
+api/config/config.*.js
+!api/config/config.default.js
