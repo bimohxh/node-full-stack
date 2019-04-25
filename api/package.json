@@ -1,0 +1,21 @@
+{
+  "name": "full-stack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "egg-bin dev"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bookshelf": "^0.14.2",
+    "bookshelf-uuid": "^1.0.0",
+    "egg": "^2.21.1",
+    "knex": "^0.16.5",
+    "mysql": "^2.17.1"
+  },
+  "devDependencies": {
+    "egg-bin": "^4.13.0"
+  }
+}
