@@ -1,5 +1,12 @@
 # admin
 
+Dashboard admin app.
+
+## Using
+
+- [vue-cli@3.0](https://github.com/vuejs/vue-cli)
+- [Element](https://github.com/ElemeFE/element)
+
 ## Project setup
 ```
 npm install
