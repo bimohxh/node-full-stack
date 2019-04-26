@@ -1,25 +1,21 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <div>
-      <p>
-        If Element is successfully added to this project, you'll see an
-        <code v-text="'<el-button>'"></code>
-        below
-      </p>
-      <el-button>el-button</el-button>
+    <div id="nav">
     </div>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  async beforeCreate () {
+    // 获取当前用户的会话
+    let res = await this.$axios(true).get('mem/session')
+    if (res.data.status !== '200') {
+      this.$router.push('/login')
+      return
+    }
+    this.$store.commit('login', res.data.data)
   }
 }
 </script>

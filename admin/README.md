@@ -6,6 +6,9 @@ Dashboard admin app.
 
 - [vue-cli@3.0](https://github.com/vuejs/vue-cli)
 - [Element](https://github.com/ElemeFE/element)
+- Sass
+- vue-router
+- vuex
 
 ## Project setup
 ```
