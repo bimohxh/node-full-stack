@@ -1,6 +1,6 @@
 module.exports = app => {
-  return app.db.model('Board', {
-    tableName: 'pre_boards',
+  return app.db.model('User', {
+    tableName: 'pre_users',
     // uuid: true,
     hasTimestamps: true
   })

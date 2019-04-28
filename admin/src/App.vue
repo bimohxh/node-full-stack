@@ -1,8 +1,11 @@
 <template>
   <div id="app">
-    <div id="nav">
-    </div>
-    <router-view/>
+    <el-container>
+      <el-header>Header</el-header>
+      <el-main>
+        <router-view/>
+      </el-main>
+    </el-container>
   </div>
 </template>
 
@@ -10,23 +13,31 @@
 export default {
   async beforeCreate () {
     // 获取当前用户的会话
-    let res = await this.$axios(true).get('mem/session')
-    if (res.data.status !== '200') {
-      this.$router.push('/login')
-      return
-    }
-    this.$store.commit('login', res.data.data)
+    // let res = await this.$axios(true).get('mem/session')
+    // if (res.data.status !== '200') {
+    //   this.$router.push('/login')
+    //   return
+    // }
+    // this.$store.commit('login', res.data.data)
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html, body {
+  margin: 0;
+  padding: 0;
+}
+.el-header, .el-footer {
+  background-color: #B3C0D1;
+  color: #333;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  line-height: 60px;
+}
+.el-main {
+  color: #333;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 </style>

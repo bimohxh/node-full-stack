@@ -1,14 +1,15 @@
 import axios from 'axios'
 import Vue from 'vue'
+const env = require('../../env')
 
 var Axios = {}
 var store = require('store')
 
 let axiosreq = function (pagination) {
   let _config = {
-    baseURL: '', // Config.api,
+    baseURL: env.api, // Config.api,
     headers: {
-      atoken: (store.get('login') || {}).token
+      token: (store.get('login') || {}).token
     }
   }
   if (pagination) {
@@ -28,8 +29,7 @@ Axios.install = function (Vue) {
       result[method] = async (...params) => {
         try {
           let res = await axiosreq()[method](...params)
-          res.data.status = String(res.data.status)
-          if (res.data.status !== '200' && !hideAlert) {
+          if (res.data.status !== 200 && !hideAlert) {
             this.$message({
               message: res.data.message || '未知错误',
               duration: 2000,

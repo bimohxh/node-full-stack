@@ -1,18 +1,47 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <el-card class="table-card">
+    <table-list table="user" :params="params">
+      <el-table-column prop="name" label="姓名"></el-table-column>
+      <el-table-column prop="email" label="邮箱"></el-table-column>
+    </table-list>
+  </el-card>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import TableList from '@/components/table-list'
 export default {
-  name: 'home',
+  data () {
+    return {
+      params: [
+        {
+          name: 'name',
+          title: '姓名',
+          symbol: '$like'
+        }, {
+          name: 'email',
+          title: '邮箱',
+          symbol: '$like',
+          type: 'select',
+          options: []
+        }
+      ]
+    }
+  },
   components: {
-    HelloWorld
+    TableList
   }
 }
 </script>
+
+<style lang="scss">
+.table-card {
+  .el-card__body {
+    padding: 0;
+  }
+  .table-search {
+    border-bottom: #DDD 1px solid;
+    padding: 20px;
+    padding-bottom: 0;
+  }
+}
+</style>
