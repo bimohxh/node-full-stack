@@ -29,5 +29,6 @@ module.exports = {
       endpoint: 'oss-cn-hongkong.aliyun.com',
       timeout: '60s'
     }
-  }
+  },
+  jwtkey: 'hxh'
 }

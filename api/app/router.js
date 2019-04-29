@@ -1,6 +1,8 @@
 module.exports = app => {
   const {router, controller} = app
-  router.get('/', controller.home.getIndex)
+  router.get('/user/login', controller.user.getLogin)
+  router.get('/user/session', controller.user.getSession)
+
   router.post('/upload', controller.upload.postIndex)
 
   // 万能接口
