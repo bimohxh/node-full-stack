@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <el-container>
-      <el-header style="padding: 0" v-if="$route.name !== 'login'">
+      <el-header class="p-0" v-if="$route.name !== 'login'">
         <v-header />
       </el-header>
       <el-main>
@@ -34,13 +34,19 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import "../node_modules/bootstrap/scss/_functions.scss";
+@import "../node_modules/bootstrap/scss/_variables.scss";
+@import "../node_modules/bootstrap/scss/_mixins.scss";
+@import "../node_modules/bootstrap/scss/_utilities.scss";
+@import "../node_modules/bootstrap/scss/_reboot.scss";
+
 html, body {
   margin: 0;
   padding: 0;
+  background-color: #f5f7fb;
 }
 .el-header, .el-footer {
-  background-color: #B3C0D1;
   color: #333;
   text-align: center;
   line-height: 60px;
@@ -51,5 +57,10 @@ html, body {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
+}
+
+.el-card.is-always-shadow, .el-card.is-hover-shadow:focus, .el-card.is-hover-shadow:hover {
+  box-shadow: 0 1px 10px 0 rgba(0,0,0,.05)!important;
+  border: 1px solid #e4eaf5;
 }
 </style>

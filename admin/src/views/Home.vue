@@ -54,14 +54,5 @@ export default {
 </script>
 
 <style lang="scss">
-.table-card {
-  .el-card__body {
-    padding: 0;
-  }
-  .table-search {
-    border-bottom: #DDD 1px solid;
-    padding: 20px;
-    padding-bottom: 0;
-  }
-}
+
 </style>

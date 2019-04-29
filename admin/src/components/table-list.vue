@@ -1,10 +1,10 @@
 <template>
   <div>
     <table-search :fields="searchFields" :mode="mode" v-model="searchParams" :action="searchAction" v-if="init" />
-    <el-table :data="items" style="width: 100%" v-loading="loading">
+    <el-table :data="items" v-loading="loading">
       <slot />
     </el-table>
-    <div style="padding: 20px 10px;">
+    <div class="p-3">
       <el-pagination background layout="prev, pager, next, total"
         :total="pagination.count"
         :page-size="pagination.size" :current-page="pagination.page"
@@ -129,11 +129,6 @@ export default {
 .table-card {
   .el-card__body {
     padding: 0;
-  }
-  .table-search {
-    border-bottom: #DDD 1px solid;
-    padding: 20px;
-    padding-bottom: 0;
   }
 }
 </style>

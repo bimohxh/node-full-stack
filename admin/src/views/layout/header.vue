@@ -1,5 +1,6 @@
 <template>
-<div class="header-box">
+<div class="header-box fixed-top">
+  <h3 class="head-title">管理后台</h3>
   <el-menu :default-active="activeIndex"  mode="horizontal" @select="handleSelect">
     <template  v-for="(menu, index) in menus" >
       <el-menu-item :key="menu.name" :index="index + 1" v-if="!menu.children">
@@ -41,9 +42,21 @@ export default {
 
 <style lang="scss">
 .header-box {
+  display: flex;
+  align-items: center;
+  background-color: #FFF;
+  box-shadow: 0px 0px 10px #EEE;
+  border-bottom: 1px solid #e4eaf5;
+  padding: 0 10px;
+  width: 100%;
+  .head-title {
+    padding: 0;
+    margin: 0;
+    color: #000;
+  }
   .el-menu.el-menu--horizontal {
-    box-shadow: 0px 0px 10px #EEE;
-    border-bottom: 1px solid #e4eaf5;
+    flex-grow: 1;
+    border-bottom: 0;
   }
  
 }

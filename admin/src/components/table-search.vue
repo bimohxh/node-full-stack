@@ -1,5 +1,5 @@
 <template>
-  <div class="table-search" v-if="fields && fields.length > 0">
+  <div class="table-search border-bottom px-4 pt-4" v-if="fields && fields.length > 0">
     <el-form :inline="true" ref="form">
       <template v-for="field in fields">
         <!--文本框搜索-->
@@ -85,11 +85,6 @@ export default {
 .table-card {
   .el-card__body {
     padding: 0;
-  }
-  .table-search {
-    border-bottom: #EEE 1px solid;
-    padding: 20px;
-    padding-bottom: 0;
   }
 }
 </style>
