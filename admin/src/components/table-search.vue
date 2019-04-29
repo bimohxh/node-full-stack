@@ -1,13 +1,26 @@
 <template>
-  <div class="table-search">
+  <div class="table-search" v-if="fields && fields.length > 0">
     <el-form :inline="true" ref="form">
       <template v-for="field in fields">
         <!--文本框搜索-->
-        <el-form-item :label="field.title">
+        <el-form-item :key="field.name" :label="field.title" v-if="!field.view || field.view === 'text'">
           <el-input v-model="params[field.name]" :placeholder="field.title"></el-input>
+        </el-form-item>
+
+        <!--下拉框-->
+        <el-form-item :key="field.name" :label="field.title" v-if="field.view === 'select'">
+          <el-select v-model="params[field.name]" :placeholder="field.title">
+            <el-option
+              v-for="item in field.scope"
+              :key="item.value"
+              :label="item.name"
+              :value="item.value">
+            </el-option>
+          </el-select>
         </el-form-item>
       </template>
       <el-form-item>
+        <el-button @click="resetAction">重置</el-button>
         <el-button type="primary" @click="searchAction">搜索</el-button>
       </el-form-item>
     </el-form>
@@ -23,6 +36,7 @@ export default {
     }
   },
   methods: {
+    // 搜索动作
     searchAction: function () {
       let params = this.fields.reduce((result, field) => {
         let _val = this.params[field.name]
@@ -34,6 +48,16 @@ export default {
       this.$emit('input', params)
       this.action()
     },
+    
+    // 重置
+    resetAction: function () {
+      this.$emit('input', {})
+      Object.keys(this.params).forEach(key => {
+        this.params[key] = ''
+      })
+      this.action()
+    },
+
     // 设置搜索表单的值
     setParams: function () {
       this.params = this.fields.reduce((result, field) => {
@@ -43,6 +67,15 @@ export default {
     }
   },
   created () {
+    // 初始化处理 fields
+    this.fields.forEach(field => {
+      if (field.view === 'select') {
+        field.scope.unshift({
+          name: '全部',
+          value: ''
+        })
+      }
+    })
     this.setParams()
   }
 }

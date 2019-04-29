@@ -16,6 +16,8 @@ Dashboard admin app.
 
 This component is used to show a table list items. include loading, search and pagination. accept following props
 
+#### props
+
 ##### `mode`
 the query params whethere show in router address, if show use `page` otherwise use `ajax`.
 
@@ -62,3 +64,30 @@ and the response must follow this format:
 The data count every page shows, if not provide, the value will be 15.
 
 
+#### params
+
+```js
+{
+  name: 'name',
+  title: '姓名',
+  symbol: '$like',
+  view: 'text',
+  scope: ...
+}
+```
+
+- `symbol` - tell the API how to deal this field. include `$eq`(default)  `$like` `$in`
+- `view` -  the search view, include `text` (default) `select`
+- `scope` - some view need this to assign data. for example the select view need options.
+
+if view is `select`, the scope is like
+
+```js
+[{
+  name: '男',
+  value: 'M'
+},{
+  name: '女',
+  value: 'F'
+}]
+```
