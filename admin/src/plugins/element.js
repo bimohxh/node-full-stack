@@ -4,7 +4,8 @@ import {
   FormItem, Input, Container,
   Main, Message, Table, TableColumn,
   Header, Loading, Pagination,
-  Select, Option } from 'element-ui'
+  Select, Option,
+  Menu, MenuItem, Submenu } from 'element-ui'
 
 Vue.use(Button)
 Vue.use(Card)
@@ -20,5 +21,8 @@ Vue.use(Select)
 Vue.use(Option)
 Vue.use(Loading)
 Vue.use(Pagination)
+Vue.use(Menu)
+Vue.use(MenuItem)
+Vue.use(Submenu)
 
 Vue.prototype.$message = Message

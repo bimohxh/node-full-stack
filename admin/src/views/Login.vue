@@ -24,6 +24,7 @@
 <script>
 const store = require('store')
 export default {
+  name: 'login',
   data () {
     return {
       account: {

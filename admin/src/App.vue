@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <el-container>
-      <el-header>Header</el-header>
+      <el-header style="padding: 0" v-if="$route.name !== 'login'">
+        <v-header />
+      </el-header>
       <el-main>
         <router-view/>
       </el-main>
@@ -10,15 +12,24 @@
 </template>
 
 <script>
+import VHeader from './views/layout/header'
 export default {
-  async beforeCreate () {
+  components: {
+    VHeader
+  },
+  methods: {
     // 获取当前用户的会话
-    // let res = await this.$axios(true).get('mem/session')
-    // if (res.data.status !== '200') {
-    //   this.$router.push('/login')
-    //   return
-    // }
-    // this.$store.commit('login', res.data.data)
+    async currentSession () {
+      let res = await this.$axios(true).get('mem/session')
+      if (res.data.status !== '200') {
+        this.$router.push('/login')
+        return
+      }
+      this.$store.commit('login', res.data.data)
+    }
+  },
+  async beforeCreate () {
+    // this.currentSession()
   }
 }
 </script>
@@ -33,6 +44,7 @@ html, body {
   color: #333;
   text-align: center;
   line-height: 60px;
+  padding: 0;
 }
 .el-main {
   color: #333;
