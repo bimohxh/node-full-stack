@@ -15,10 +15,10 @@ module.exports = {
     allowHeaders: 'Origin, X-Requested-With, Content-Type, Accept, token'
   },
   database: {
-    host: '',
-    user: '',
-    password: '',
-    database: '',
+    host: '127.0.0.1',
+    user: 'root',
+    password: '1234',
+    database: 'fruit',
     charset: 'utf8'
   },
   oss: {

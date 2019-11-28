@@ -8,4 +8,8 @@ module.exports = app => {
   // 万能接口
   router.get('/table/:table', controller.table.getIndex)
   router.get('/table/:table/:id', controller.table.getDetail)
+
+
+  
+  router.get('/topic', controller.topic.getIndex)
 }
